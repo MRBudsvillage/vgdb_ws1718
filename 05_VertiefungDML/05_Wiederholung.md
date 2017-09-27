@@ -36,3 +36,20 @@ SELECT NAME, ANR
 FROM ARTIKEL
 WHERE APREIS > 100;
 ```
+
+## Aufgabe 5
+Zeige alle Vertreter an, die vor dem 01.10.1980 geboren sind und deren Namen ein i beinhaltet
+
+```sql
+SELECT *
+FROM VERTRETER 
+WHERE to_date(GEBURTSDATUM, 'DD.MM.YYYY') < '01-DEC-1980'; 
+````
+
+## Aufgabe 6
+
+Füge dich selbst als Vertreter in die Tabelle hinzu
+
+````sql
+INSERT INTO VERTRETER
+values (7777, 'Nico Wolf', '23-DEC-1995', 6);
