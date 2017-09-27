@@ -24,7 +24,7 @@ Zeige alle Vertreter mit `NAME` und `VNR` an, die eine Provision von  weniger al
 ```
 SELECT NAME, VNR
 FROM VERTRETER
-WHERE PROVISION < 7;
+WHERE PROVISION < 0.07;
 ```
 
 ## Aufgabe 4
@@ -43,7 +43,8 @@ Zeige alle Vertreter an, die vor dem 01.10.1980 geboren sind und deren Namen ein
 ```sql
 SELECT *
 FROM VERTRETER 
-WHERE to_date(GEBURTSDATUM, 'DD.MM.YYYY') < '01-DEC-1980'; 
+WHERE to_date(GEBURTSDATUM, 'DD.MM.YYYY') < '01-DEC-1980'
+AND vname LIKE '%i%'; 
 ````
 
 ## Aufgabe 6
@@ -52,12 +53,12 @@ Füge dich selbst als Vertreter in die Tabelle hinzu
 
 ```sql
 INSERT INTO VERTRETER
-values (7777, 'Nico Wolf', '23-DEC-1995', 6);
+values (7777, 'Nico Wolf', '23-DEC-1995', 0.07);
 ```
 ## Aufgabe 7
 ```sql
 INSERT INTO VERKAUF
-values (1014, 7777, NULL, 22, '27-SEP-2017');
+values (1014, 7777, 13, 22, sysdate);
 ```
 
 ## Aufgabe 8
@@ -67,4 +68,33 @@ UPDATE ARTIKEL
 SET APREIS = 88.90
 WHERE ANAME = 'STIEFEL';
 
+``` 
+
+## Aufgabe 9
+
+```sql
+
+ALTER TABLE VERTRETER 
+ADD (bonus NUMBER(4,0));
+
+```	
+
+## Aufgabe 10
+
+```sql
+
+UPDATE VERTRETER
+SET bonus = 500;
+
+```
+## Aufgabe 11
+```sql
+ALTER TABLE VERTRETER
+MODIFY (VNAME VARCHAR(20));
+```
+
+## Aufgabe 12
+```sql
+SELECT DISTINCT DATUM
+FROM VERKAUF; 
 ``` 
