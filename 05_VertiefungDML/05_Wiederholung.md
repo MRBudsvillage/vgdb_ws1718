@@ -60,3 +60,11 @@ INSERT INTO VERKAUF
 values (1014, 7777, NULL, 22, '27-SEP-2017');
 ```
 
+## Aufgabe 8
+
+```sql
+UPDATE ARTIKEL
+SET APREIS = 88.90
+WHERE ANAME = 'STIEFEL';
+
+``` 
