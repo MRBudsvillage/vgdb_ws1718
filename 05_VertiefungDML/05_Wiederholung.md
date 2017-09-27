@@ -50,6 +50,13 @@ WHERE to_date(GEBURTSDATUM, 'DD.MM.YYYY') < '01-DEC-1980';
 
 Füge dich selbst als Vertreter in die Tabelle hinzu
 
-````sql
+```sql
 INSERT INTO VERTRETER
 values (7777, 'Nico Wolf', '23-DEC-1995', 6);
+```
+## Aufgabe 7
+```sql
+INSERT INTO VERKAUF
+values (1014, 7777, NULL, 22, '27-SEP-2017');
+```
+
