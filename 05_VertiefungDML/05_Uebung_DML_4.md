@@ -39,7 +39,13 @@ Erzeuge folgende Ausgabe:
 
 ### Lösung
 ```sql
-Deine Lösung
+
+
+SELECT vnr, 	UPPER(vname) VNAME_UP,
+			ROUND(provision,1) PROV_GRD
+FROM vertreter;
+
+
 ```
 
 ## Aufgabe 4
@@ -47,7 +53,13 @@ Zeige alle Artikel an, die mit `Wi` beginnen. Löse diese Aufgabe mit der substr
 
 ### Lösung
 ```sql
-Deine Lösung
+
+SELECT aname
+FROM artikel
+WHERE SUBSTR(aname,1,2) = 'Wi';
+
+
+
 ```
 
 ## Aufgabe 5
@@ -62,7 +74,9 @@ Erzeuge folgende Ausgabe:
 
 ### Lösung
 ```sql
-Deine Lösung
+SELECT vnr, 	vname,	
+			TO_CHAR(geburtsdatum, 'dd-mm') DAT
+FROM vertreter;
 ```
 
 ## Aufgabe 6
@@ -70,7 +84,14 @@ Zeige alle Vertreter (`VNR`, `VNAME`) an, die im selben Jahr geboren sind wie de
 
 ### Lösung
 ```sql
-Deine Lösung
+SELECT vnr, vname
+FROM vertreter
+WHERE TO_CHAR(Geburtsdatum, 'yyyy') = (
+	SELECT TO_CHAR(Geburtsdatum, 'yyyy')
+	FROM vertreter
+	WHERE vname = 'Jahred');
+	
+
 ```
 
 ## Aufgabe 7
@@ -78,5 +99,19 @@ Erhöhe bei den Vertretern den Bonus um `300`, die in einem Monat geboren sind, 
 
 ### Lösung
 ```sql
-Deine Lösung
+
+UPDATE vertreter
+SET bonus = bonus + 300
+WHERE vnr IN (
+SELECT vnr
+FROM Vertreter
+WHERE TO_CHAR(Geburtsdatum, 'mm') IN ( 
+	SELECT TO_CHAR(LAST_DAY(Geburtsdatum), 'mm')
+	FROM vertreter
+	WHERE TO_CHAR(LAST_DAY(geburtsdatum), 'dd') = '31'
+	)
+);
+
+
 ```
+
