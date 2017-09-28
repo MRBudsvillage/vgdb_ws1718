@@ -7,7 +7,24 @@ Lege für die Tabellen `VERTRETER`, `VERKAUF` und `ARTIKEL` Primary Key Constrai
 
 ### Lösung
 ```sql
-Deine Lösung
+CREATE TABLE vertreter
+(	
+	vnr NUMBER (4,0) CONSTRAINT pkvnr PRIMARY KEY
+);
+
+CREATE TABLE verkauf
+(	
+	vnr NUMBER (4,0), 
+	unr NUMBER (4,0)
+	CONSTRAINT pkvnr PRIMARY KEY
+);
+
+CREATE TABLE artikel
+(	
+	anr NUMBER (4,0) CONSTRAINT pkvnr PRIMARY KEY
+);
+
+
 ```
 
 ## Aufgabe 2
@@ -15,7 +32,10 @@ Lege für die Tabelle `VERKAUF` alle notwendigen Foreign Key Constraints (`FK`) 
 
 ### Lösung
 ```sql
-Deine Lösung
+
+
+
+
 ```
 
 ## Aufgabe 3
